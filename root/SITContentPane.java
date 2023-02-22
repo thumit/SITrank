@@ -18,5 +18,5 @@ package root;
 import javax.swing.JPanel;
 
 
-public class IMSRContentPane extends JPanel {
+public class SITContentPane extends JPanel {
 }

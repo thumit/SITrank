@@ -22,7 +22,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
-import root.IMSRmain;
+import root.SITmain;
 
 public class FilesChooser {
 	
@@ -39,7 +39,7 @@ public class FilesChooser {
 		chooser.setFileFilter(filter);
 		chooser.setAcceptAllFileFilterUsed(false);
 		
-		int returnValue = chooser.showOpenDialog(IMSRmain.get_DesktopPane());
+		int returnValue = chooser.showOpenDialog(SITmain.get_DesktopPane());
 		File[] files = null;
 		if (returnValue == JFileChooser.APPROVE_OPTION) {
 
@@ -61,7 +61,7 @@ public class FilesChooser {
 		chooser.setFileFilter(filter);
 		chooser.setAcceptAllFileFilterUsed(false);
 		
-		int returnValue = chooser.showOpenDialog(IMSRmain.get_DesktopPane());
+		int returnValue = chooser.showOpenDialog(SITmain.get_DesktopPane());
 		File[] files = null;
 		if (returnValue == JFileChooser.APPROVE_OPTION) {
 
@@ -82,7 +82,7 @@ public class FilesChooser {
 		chooser.setFileFilter(filter);
 		chooser.setAcceptAllFileFilterUsed(false);
 		
-		int returnValue = chooser.showOpenDialog(IMSRmain.get_DesktopPane());
+		int returnValue = chooser.showOpenDialog(SITmain.get_DesktopPane());
 		File[] files = null;
 		if (returnValue == JFileChooser.APPROVE_OPTION) {
 

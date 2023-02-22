@@ -29,7 +29,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
-import root.IMSRmain;
+import root.SITmain;
 
 public class FilesHandle {
 	public FilesHandle() {
@@ -41,7 +41,7 @@ public class FilesHandle {
 		String workingLocation;
 
 		// Get working location of the IDE project, or runnable jar file
-		final File jarFile = new File(IMSRmain.get_main().getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+		final File jarFile = new File(SITmain.get_main().getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
 		workingLocation = jarFile.getParentFile().toString();
 
 		// Make the working location with correct name
@@ -152,7 +152,7 @@ public class FilesHandle {
 			file_maequee = new File(get_temporaryFolder().getAbsolutePath() + "/" + "maequee.txt");
 			file_maequee.deleteOnExit();
 
-			InputStream initialStream = IMSRmain.get_main().getClass().getResourceAsStream("/maequee.txt");
+			InputStream initialStream = SITmain.get_main().getClass().getResourceAsStream("/maequee.txt");
 			byte[] buffer = new byte[initialStream.available()];
 			initialStream.read(buffer);
 
@@ -170,7 +170,7 @@ public class FilesHandle {
 	}
 	
 	public static File get_file_from_resource(String file_name) {
-		URL url = IMSRmain.get_main().getClass().getResource("/" + file_name);
+		URL url = SITmain.get_main().getClass().getResource("/" + file_name);
 		try {
 			return new File(url.toURI());
 		} catch (URISyntaxException e) {
@@ -182,7 +182,7 @@ public class FilesHandle {
 	public static File getResourceFile(String fileName, Path targetDirectory) {
 //		File output = new File(FilesHandle.get_temporaryFolder().getAbsolutePath() + "/" + fileName);
 		try {
-			InputStream initialStream = IMSRmain.get_main().getClass().getResourceAsStream("/" + fileName);
+			InputStream initialStream = SITmain.get_main().getClass().getResourceAsStream("/" + fileName);
 			Files.copy(initialStream, targetDirectory, StandardCopyOption.REPLACE_EXISTING);
 			initialStream.close();
 		} catch (IOException e) {

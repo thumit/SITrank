@@ -21,8 +21,8 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JMenuBar;
 
-public class IMSRMenuBar extends JMenuBar implements MouseListener, MouseMotionListener {
-	public IMSRMenuBar() {
+public class SITMenuBar extends JMenuBar implements MouseListener, MouseMotionListener {
+	public SITMenuBar() {
 	}
 
 	@Override

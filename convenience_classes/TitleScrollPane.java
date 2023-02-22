@@ -28,7 +28,7 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
 
-import root.IMSRmain;
+import root.SITmain;
 
 public class TitleScrollPane extends JScrollPane {	
 	// Scroll Panel with Title and the nested ScrollPane with Border
@@ -46,7 +46,7 @@ public class TitleScrollPane extends JScrollPane {
 		            Dialog dialog = (Dialog)window;
 		            if (!dialog.isResizable()) {
 		                dialog.setResizable(true);
-		                dialog.setPreferredSize(new Dimension((int) (IMSRmain.get_main().getWidth() / 1.1), (int) (IMSRmain.get_main().getHeight() / 1.21)));
+		                dialog.setPreferredSize(new Dimension((int) (SITmain.get_main().getWidth() / 1.1), (int) (SITmain.get_main().getHeight() / 1.21)));
 		            }
 		        }
 		    }

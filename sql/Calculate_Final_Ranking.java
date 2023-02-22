@@ -24,7 +24,7 @@ import javax.swing.SwingUtilities;
 
 import convenience_classes.ColorTextArea;
 import convenience_classes.TitleScrollPane;
-import root.IMSRmain;
+import root.SITmain;
 
 public class Calculate_Final_Ranking {
 	Calculate_A1 A1;
@@ -111,7 +111,7 @@ public class Calculate_Final_Ranking {
 			            Dialog dialog = (Dialog)window;
 			            if (!dialog.isResizable()) {
 			                dialog.setResizable(true);
-			                dialog.setPreferredSize(new Dimension((int) (IMSRmain.get_main().getWidth() / 1.1), (int) (IMSRmain.get_main().getHeight() / 1.21)));
+			                dialog.setPreferredSize(new Dimension((int) (SITmain.get_main().getWidth() / 1.1), (int) (SITmain.get_main().getHeight() / 1.21)));
 			            }
 			        }
 			    }
@@ -123,7 +123,7 @@ public class Calculate_Final_Ranking {
 			
 			// Add everything to a popup panel
 			String ExitOption[] = {"EXIT" };
-			int response = JOptionPane.showOptionDialog(IMSRmain.get_DesktopPane(), this, "Wildfire ranking points based on California prioritization rules",
+			int response = JOptionPane.showOptionDialog(SITmain.get_DesktopPane(), this, "Wildfire ranking points based on California prioritization rules",
 					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, ExitOption, ExitOption[0]);
 		}
 	}

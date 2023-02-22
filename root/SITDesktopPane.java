@@ -26,10 +26,10 @@ import javax.swing.JDesktopPane;
 
 
 @SuppressWarnings("serial")
-public class IMSRDesktopPane extends JDesktopPane {
+public class SITDesktopPane extends JDesktopPane {
 	private BufferedImage img;
 	
-	public IMSRDesktopPane() {
+	public SITDesktopPane() {
 		process_image();
 	}
 	

@@ -26,7 +26,6 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.io.File;
 import java.util.Arrays;
 
 import javax.swing.JFrame;
@@ -41,7 +40,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
-import convenience_classes.FilesChooser;
 import sql.Calculate_A1;
 import sql.Calculate_A2;
 import sql.Calculate_A3;
@@ -57,27 +55,26 @@ import sql.Calculate_D2;
 import sql.Calculate_Final_Ranking;
 import sql.Calculate_Keyword_Frequency;
 
-public class IMSRmain extends JFrame {
+public class SITmain extends JFrame {
 	// Define variables------------------------------------------------------------------------
-	private static IMSRMenuBar 			menuBar;
+	private static SITMenuBar 			menuBar;
 	private JMenu 						menuUtility, menuHelp, menu_SIT_Ranking, menu_SIT_Keyword;
-	private JMenuItem					pdftotext, explore_extract, data_support; 			// For menuUtility
 	private JMenuItem 					content, update, about; 	// For menuHelp
 	private JMenuItem 					customization, total_points, A1, A2, A3, B1, B2, B3, C1, C2, C3, C4, D1, D2; 			// For SIT_Ranking
-	private static IMSRDesktopPane 		desktopPane;
-	private static IMSRContentPane 		contentPane;
-	private static IMSRmain 			main;
-	private static String 				version = "IMRS-TOOL-1.05";
+	private static SITDesktopPane 		desktopPane;
+	private static SITContentPane 		contentPane;
+	private static SITmain 				main;
+	private static String 				version = "SIT-RANK-1.00";
 	
 	public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				main = new IMSRmain();
+				main = new SITmain();
 			}
 		});
 	}
 
-	public IMSRmain() {
+	public SITmain() {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {	
@@ -97,16 +94,13 @@ public class IMSRmain extends JFrame {
 				}	
 						
 				// Define components: Menubar, Menus, MenuItems----------------------------------
-				desktopPane = new IMSRDesktopPane();
-				menuBar = new IMSRMenuBar();
+				desktopPane = new SITDesktopPane();
+				menuBar = new SITMenuBar();
 				menuUtility = new JMenu("Utility");
 				menuHelp = new JMenu("Help");
 				menu_SIT_Keyword = new JMenu("SIT Keyword");
 				menu_SIT_Ranking = new JMenu("SIT Ranking");
 				
-				pdftotext = new JMenuItem("IMSR Pdf to Text ");
-				explore_extract = new JMenuItem("IMSR Explore & Extract");
-				data_support = new JMenuItem("Data Support Functions");
 				content = new JMenuItem("Content");
 				update = new JMenuItem("Update");
 				about = new JMenuItem("About");
@@ -126,9 +120,6 @@ public class IMSRmain extends JFrame {
 				D2 = new JMenuItem("D2 Points");
 				
 				// Add components: Menubar, Menus, MenuItems----------------------------------
-				menuUtility.add(pdftotext);
-				menuUtility.add(explore_extract);
-				menuUtility.add(data_support);	
 				menuUtility.add(menu_SIT_Keyword);
 				menuUtility.add(menu_SIT_Ranking);	
 				menuHelp.add(content);
@@ -153,7 +144,7 @@ public class IMSRmain extends JFrame {
 				menuBar.add(menuHelp);
 				setJMenuBar(menuBar);	
 				
-				contentPane = new IMSRContentPane();
+				contentPane = new SITContentPane();
 		        contentPane.setLayout(new BorderLayout());	
 		        contentPane.add(desktopPane);
 		        setContentPane(contentPane);
@@ -162,33 +153,7 @@ public class IMSRmain extends JFrame {
 				setLocationRelativeTo(null);
 				setVisible(true);
 				
-				// Add listeners "New"------------------------------------------------
-				pdftotext.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, Toolkit.getDefaultToolkit ().getMenuShortcutKeyMask()));	// CTRL on Windows, *** on MAC-OS
-				pdftotext.setMnemonic(KeyEvent.VK_P);
-				pdftotext.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent event) {
-						File[] files = FilesChooser.chosenPdfFiles("Select pdf files for conversion to text files"); // Open File chooser
-						Utility u = new Utility();
-						u.convert_pdf_to_text_files(files);
-					}
-				});	
-				
-				explore_extract.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, Toolkit.getDefaultToolkit ().getMenuShortcutKeyMask()));	// CTRL on Windows, *** on MAC-OS
-				explore_extract.setMnemonic(KeyEvent.VK_E);
-				explore_extract.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent event) {
-						Utility u = new Utility();
-						u.explore_and_extract_files();
-					}
-				});	
-				
-				data_support.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, Toolkit.getDefaultToolkit ().getMenuShortcutKeyMask()));	// CTRL on Windows, *** on MAC-OS
-				data_support.setMnemonic(KeyEvent.VK_D);
-				data_support.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent event) {
-					}
-				});	
-				
+				// Add listeners------------------------------------------------
 				menu_SIT_Ranking.setMnemonic(KeyEvent.VK_R);
 				menu_SIT_Keyword.setMnemonic(KeyEvent.VK_K);
 				menu_SIT_Keyword.addMenuListener(new MenuListener() {
@@ -345,11 +310,11 @@ public class IMSRmain extends JFrame {
 		return new Dimension((int) (width * 0.8), (int) (height * 0.9));
 	}
 	
-	public static IMSRDesktopPane get_DesktopPane() {
+	public static SITDesktopPane get_DesktopPane() {
 		return desktopPane;
 	}
 	
-	public static IMSRmain get_main() {
+	public static SITmain get_main() {
 		return main;
 	}
 }
